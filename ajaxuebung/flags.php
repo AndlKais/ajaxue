@@ -10,22 +10,23 @@ $flag[] = new RectangleFlag("Octocat-Land", 24.5, 2.0, 0.5, "#FFC8AB");
 $flag[] = new TriangleFlag("Trioochs-Land", 14.8, 6.0, 3.2, "#F8C87B");
 $flag[] = new TriangleFlag("Eingiraffe-Land", 26.1, 3.3, 7.2, "#A6C97B");
 
-if(isset($_GET['typ']) && $_GET['typ'] == "json"){
-    header('Content-Type: application/json');
-    outputHTML($flag);
-}
+
 
 foreach ($flag as $flags) {
     $myflag[] = [
-        "name" => $flag->getName(),
-        "price" => $flag->getPrice(),
-        "width" => $flag->getWidth(),
-        "height" => $flag->getHeight(),
-        "color" => $flag->getColor()
+        "name" => $flags->getName(),
+        "price" => $flags->getPrice(),
+        "width" => $flags->getWidth(),
+        "height" => $flags->getHeight(),
+        "color" => $flags->getColor(),
     ];
 }
 
-json_encode($myflag);
+if(isset($_GET['typ']) && !empty($_GET["typ"]) && $_GET['typ'] == "json"){
+    header('Content-Type: application/json');
+    echo json_encode($myflag);
+}else {
+
 
     $view = new \TYPO3Fluid\Fluid\View\TemplateView();
 
@@ -36,13 +37,13 @@ json_encode($myflag);
 
     $view->assignMultiple(
         array(
-            "Flags" => $myflag,
-
-
+            "Flags" => $myflag
         )
     );
 
     // Rendering the View: plain old rendering of single file, no bells and whistles.
     $output = $view->render();
 
+
     echo $output;
+}
