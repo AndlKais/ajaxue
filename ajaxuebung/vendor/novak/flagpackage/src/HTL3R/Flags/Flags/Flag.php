@@ -15,6 +15,7 @@ abstract class Flag implements \HTL3R\Flags\Interfaces\FlagInterface
     protected $width;
     protected $height;
     protected $color;
+    protected $langcode;
 
     /**
      * Flag constructor.
@@ -24,13 +25,14 @@ abstract class Flag implements \HTL3R\Flags\Interfaces\FlagInterface
      * @param float $height height of the flag in m
      * @param string $color color as hex code
      */
-    function __construct(string $name, float $price, float $width, float $height, string $color)
+    function __construct(string $name, float $price, float $width, float $height, string $color, string $langcode)
     {
-        $this->name = $name;;
+        $this->name = $name;
         $this->price = $price;
         $this->width = $width;
         $this->height = $height;
         $this->color = $color;
+        $this->langcode = $langcode;
     }
 
     /*
@@ -61,6 +63,11 @@ abstract class Flag implements \HTL3R\Flags\Interfaces\FlagInterface
         return $this->color;
     }
 
+    public function getLangcode(): string
+    {
+        return $this->langcode;
+    }
+
     /**
      * Calculates the area of the flag
      * @return float area of the flag in m^2
@@ -77,7 +84,8 @@ abstract class Flag implements \HTL3R\Flags\Interfaces\FlagInterface
         Preis: $this->price <br>
         Breite: $this->width <br>
         Höhe: $this->height <br>
-        Farbe: <div style="background-color:$this->color; width:50px; height: 50px;"></div>
+        Farbe: <div style="background-color:$this->color; width:50px; height: 50px;"></div><br>
+        Language Code: $this->langcode
 EOT;
 
         return $rv;

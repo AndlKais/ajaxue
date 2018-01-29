@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
     <link type="text/css" rel="stylesheet" href="vendor/components/flag-icon-css/css/flag-icon.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
 
-<header>
-    <h1>Flaggs</h1>
-</header>
-<f:for each="{Flags}" as="flag">
-    <div style="background-color: {flag.color};">
-        <p>Name: {flag.name}, Farbe: {flag.color}, Breite: {flag.width}, Höhe: {flag.height}, Preis: {flag.price}</p>
-    </div>
-</f:for>
 
-<p>Testflagge - Griechenland</p>
-<span class="flag-icon flag-icon-gr"></span>
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: unset">
+        <div class="container">
+            <h1 style="text-align: center">FlaggsSTORE</h1>
+        </div>
+    </div>
+
+<div class="card-group">
+        <f:for each="{Flags}" as="flag">
+
+
+            <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <h9 class="flag-icon flag-icon-{flag.langcode}"></h9>
+
+            <p class="card-text">Name: {flag.name} <br> Farbe: {flag.color} <br> Breite: {flag.width} <br> Höhe: {flag.height} <br> Preis: {flag.price}</p>
+
+            <a href="#" class="btn" style="background-color: {flag.color};" aria-disabled="true">Kaufen</a>
+        </div>
+        </div>
+
+
+    </f:for>
+</div>
+
+<!--<p>Testflagge - Griechenland</p>
+<span class="flag-icon flag-icon-gr"></span>-->
 </body>
 </html>
