@@ -2,20 +2,26 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/components/flag-icon-css" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/novak/flagpackage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/typo3fluid/fluid" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/components/flag-icon-css" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
           <root url="file://$MODULE_DIR$/vendor/novak/flagpackage" />
+          <root url="file://$MODULE_DIR$/vendor/typo3fluid/fluid" />
         </CLASSES>
         <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/components/flag-icon-css" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
           <root url="file://$MODULE_DIR$/vendor/novak/flagpackage" />
+          <root url="file://$MODULE_DIR$/vendor/typo3fluid/fluid" />
         </SOURCES>
       </library>
     </orderEntry>

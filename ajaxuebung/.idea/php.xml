@@ -4,6 +4,8 @@
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/novak/flagpackage" />
+      <path value="$PROJECT_DIR$/vendor/typo3fluid/fluid" />
+      <path value="$PROJECT_DIR$/vendor/components/flag-icon-css" />
     </include_path>
   </component>
 </project>
