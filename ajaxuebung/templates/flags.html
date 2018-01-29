@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 
     <div class="jumbotron jumbotron-fluid" style="margin-bottom: unset">
         <div class="container">
@@ -39,5 +40,18 @@
 
 <!--<p>Testflagge - Griechenland</p>
 <span class="flag-icon flag-icon-gr"></span>-->
+=======
+<header>
+    <h1>Flaggs</h1>
+</header>
+<f:for each="{Flags}" as="flag">
+    <div style="background-color: {flag.color};">
+        <p>Name: {flag.name}, Farbe: {flag.color}, Breite: {flag.width}, Höhe: {flag.height}, Preis: {flag.price}</p>
+    </div>
+</f:for>
+
+<p>Testflagge - Griechenland</p>
+<span class="flag-icon flag-icon-gr"></span>
+>>>>>>> 0688b176631f99efae6283403190397ea59b26c8
 </body>
 </html>

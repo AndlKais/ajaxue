@@ -11,6 +11,10 @@ $flag[] = new TriangleFlag("Trioochs-Land", 14.8, 6.0, 3.2, "#F8C87B","de");
 $flag[] = new TriangleFlag("Eingiraffe-Land", 26.1, 3.3, 7.2, "#A6C97B", "ch");
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0688b176631f99efae6283403190397ea59b26c8
 
 foreach ($flag as $flags) {
     $myflag[] = [
@@ -19,7 +23,10 @@ foreach ($flag as $flags) {
         "width" => $flags->getWidth(),
         "height" => $flags->getHeight(),
         "color" => $flags->getColor(),
+<<<<<<< HEAD
         "langcode" => $flags->getLangcode()
+=======
+>>>>>>> 0688b176631f99efae6283403190397ea59b26c8
     ];
 }
 
