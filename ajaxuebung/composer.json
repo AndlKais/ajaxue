@@ -1,0 +1,22 @@
+{
+    "name": "andlk/ajaxuebung",
+    "description": "Flags + Ajax",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Andreas Kaiser",
+            "email": "4171@htl.rennweg.at"
+        }
+    ],
+    "require": {
+        "novak/flagpackage": "^1.1"
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/SabrinaNovak/Flags"
+        }
+    ]
+}
