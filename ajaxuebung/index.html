@@ -2,10 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flaggen für die Welt</title>
 </head>
 <body>
-    <span class="flag-icon flag-icon-gr"></span>
-    <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
+    <script type="text/javascript">
+        function status(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return Promise.resolve(response)
+            } else {
+                return Promise.reject(new Error(response.statusText))
+            }
+        }
+
+        function json(response) {
+            return response.json()
+        }
+
+
+        fetch('flags.php?mode=json')
+            .then(status)
+            .then(json)
+            .then(function (data) {
+                console.log('Request succeeded with JSON response', data);
+            })
+            .catch(function (error) {
+                    console.log('Request failed', error);
+                }
+            );
+    </script>
 </body>
 </html>

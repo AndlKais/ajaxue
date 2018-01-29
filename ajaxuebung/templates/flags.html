@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link type="text/css" rel="stylesheet" href="vendor/components/flag-icon-css/css/flag-icon.min.css">
+
+
+</head>
+<body>
+
+<header>
+    <h1>Flaggs</h1>
+</header>
+<f:for each="{Flags}" as="flag">
+    <p>Name: {flag.name}, Farbe: {flag.color}, Breite: {flag.width}, Höhe: {flag.height}, Preis: {flag.price}, Fläche: {flag.area}</p>
+</f:for>
+
+<span class="flag-icon flag-icon-gr"></span>
+</body>
+</html>

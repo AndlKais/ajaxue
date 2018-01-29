@@ -2,33 +2,47 @@
 
 require "./vendor/autoload.php";
 
-
 use HTL3R\Flags\Flags\TriangleFlag;
 use HTL3R\Flags\Flags\RectangleFlag;
 use HTL3R\Flags\Flags\Flag;
 
-$flag = new RectangleFlag("Octocat-Land", 24.5, 2.0, 0.5, "#FFC8AB");
-$flag2 = new TriangleFlag("Trioochs-Land", 14.8, 6.0, 3.2, "#F8C87B");
-$flag3 = new TriangleFlag("Eingiraffe-Land", 26.1, 3.3, 7.2, "#A6C97B");
+$flag[] = new RectangleFlag("Octocat-Land", 24.5, 2.0, 0.5, "#FFC8AB");
+$flag[] = new TriangleFlag("Trioochs-Land", 14.8, 6.0, 3.2, "#F8C87B");
+$flag[] = new TriangleFlag("Eingiraffe-Land", 26.1, 3.3, 7.2, "#A6C97B");
+
+if(isset($_GET['typ']) && $_GET['typ'] == "json"){
+    header('Content-Type: application/json');
+    outputHTML($flag);
+}
+
+foreach ($flag as $flags) {
+    $myflag[] = [
+        "name" => $flag->getName(),
+        "price" => $flag->getPrice(),
+        "width" => $flag->getWidth(),
+        "height" => $flag->getHeight(),
+        "color" => $flag->getColor()
+    ];
+}
+
+json_encode($myflag);
+
+    $view = new \TYPO3Fluid\Fluid\View\TemplateView();
+
+    $paths = $view->getTemplatePaths();
 
 
+    $paths->setTemplatePathAndFilename(__DIR__ . '/templates/flags.html');
 
-echo $flag;
-echo $flag2;
-echo $flag3;
+    $view->assignMultiple(
+        array(
+            "Flags" => $myflag,
 
 
-$view = new \TYPO3Fluid\Fluid\View\TemplateView();
-
-$paths = $view->getTemplatePaths();
-
-// Assigning the template path and filename to be rendered. Doing this overrides
-    // resolving normally done by the TemplatePaths and directly renders this file.
-$paths->setTemplatePathAndFilename(__DIR__ . 'index.html');
-
-$view->assignMultiple($valuesArray);
+        )
+    );
 
     // Rendering the View: plain old rendering of single file, no bells and whistles.
-$output = $view->render();
+    $output = $view->render();
 
-return $output;
+    echo $output;
